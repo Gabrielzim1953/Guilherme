@@ -1,0 +1,104 @@
+:root {
+    --primary: #CCFF00; /* Verde Lima Neon */
+    --secondary: #8A2BE2; /* Roxo Elétrico */
+    --accent: #00D1FF; /* Azul Neon */
+    --dark: #000000;
+    --glass: rgba(255, 255, 255, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--dark);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Fundo Mesh Gradient Animado */
+.bg-glow {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(204, 255, 0, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(0, 209, 255, 0.1) 0%, transparent 50%);
+    z-index: -1;
+    filter: blur(60px);
+}
+
+header {
+    padding: 20px 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    position: fixed; width: 100%; z-index: 1000;
+    backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass);
+}
+
+.logo { font-family: 'Syncopate', sans-serif; font-size: 1.2rem; font-weight: bold; }
+.logo span { color: var(--primary); }
+
+nav a { text-decoration: none; color: #ccc; margin-left: 20px; font-size: 0.8rem; font-weight: bold; transition: 0.3s; }
+nav a:hover { color: var(--primary); }
+
+.btn-nav { background: var(--primary); color: black !important; padding: 8px 15px; border-radius: 4px; }
+
+/* Hero Section */
+.hero {
+    height: 100vh; display: flex; align-items: center; padding: 0 8%;
+}
+
+.hero-video-container {
+    position: absolute; right: 5%; width: 35%; height: 75%;
+    border-radius: 20px; overflow: hidden; border: 1px solid var(--glass);
+}
+
+.hero-video { width: 100%; height: 100%; object-fit: cover; }
+.overlay { position: absolute; top: 0; width: 100%; height: 100%; background: linear-gradient(to right, var(--dark) 10%, transparent); }
+
+.hero-content { position: relative; z-index: 10; max-width: 600px; }
+.hero-content h1 { font-family: 'Syncopate', sans-serif; font-size: 3.5rem; line-height: 1; margin: 20px 0; }
+.gradient-text { background: linear-gradient(45deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.badge { background: var(--glass); border: 1px solid var(--primary); color: var(--primary); padding: 5px 12px; border-radius: 50px; font-size: 0.7rem; letter-spacing: 1px; }
+
+.hero-btns { display: flex; gap: 15px; margin-top: 35px; }
+.btn-primary { background: var(--primary); color: black; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+.btn-secondary { background: white; color: black; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+.btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(204, 255, 0, 0.4); }
+
+/* Features */
+.features { display: flex; gap: 20px; padding: 80px 8%; }
+.feat-card { background: var(--glass); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); flex: 1; }
+.feat-card h3 { color: var(--primary); margin: 15px 0; font-size: 1rem; }
+.feat-card p { font-size: 0.9rem; color: #bbb; }
+
+/* Portfolio */
+.portfolio { padding: 100px 8%; text-align: center; }
+.section-title { font-family: 'Syncopate', sans-serif; font-size: 2rem; margin-bottom: 10px; }
+.section-desc { color: #888; margin-bottom: 50px; }
+
+.grid-portfolio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.video-card { position: relative; border-radius: 15px; overflow: hidden; aspect-ratio: 9/16; background: #111; cursor: pointer; }
+.video-card video { width: 100%; height: 100%; object-fit: cover; }
+.card-info { position: absolute; bottom: 20px; left: 20px; font-weight: bold; font-size: 0.8rem; text-shadow: 0 2px 10px black; }
+
+/* Final CTA */
+.cta-final { padding: 100px 8%; text-align: center; background: radial-gradient(circle, #8a2be222 0%, transparent 70%); }
+.cta-final h2 { font-family: 'Syncopate', sans-serif; font-size: 2.5rem; margin-bottom: 20px; }
+.cta-final p { margin-bottom: 40px; color: #ccc; }
+
+footer { padding: 40px; text-align: center; border-top: 1px solid var(--glass); font-size: 0.8rem; color: #555; }
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    header { padding: 15px; }
+    .hero { flex-direction: column; padding-top: 120px; }
+    .hero-video-container { position: relative; width: 100%; height: 450px; right: 0; order: 2; margin-top: 30px; }
+    .hero-content { order: 1; text-align: center; }
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-btns { justify-content: center; }
+    .features { flex-direction: column; }
+    .grid-portfolio { grid-template-columns: 1fr; }
+    nav { display: none; }
+}
